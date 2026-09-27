@@ -116,8 +116,6 @@ forecast = base_prediction
 
 ### Ссылки
 
-- [Официальный архив датасета хакатона](https://disk.yandex.ru/d/DiFwlfMOauxjBg) —
-  история валидаций, тестовый период и справочники организаторов.
 - **Погода:** [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api).
   Файл `open-meteo-55.78N37.58E151m.csv` выгружен для координат
   `55.782074, 37.576374`, часового пояса `Europe/Moscow` и периода
