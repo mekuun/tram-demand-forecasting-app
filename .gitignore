@@ -1,0 +1,34 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+frontend/.git/
+frontend/.git.backup/
+frontend/node_modules/
+frontend/.next/
+frontend/.vinext/
+frontend/.wrangler/
+frontend/dist/
+frontend/.env.local
+
+frontend copy/
+frontend copy_bad_map/
+tmp/
+dataset/
+дизайн/
+дизайн.txt
+условия.txt
+учесть.txt
+logo2.svg
+frontend/ui_weather_coefficients.csv
+*диза*
+*услов*
+*учест*
+Codex Image *.png
+узор.pdf
+
+/data.csv
+/ui_forecasts.csv
+/frontend/data.csv
+/frontend/data/

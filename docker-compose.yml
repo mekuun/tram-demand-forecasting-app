@@ -1,0 +1,47 @@
+name: potok
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      CORS_ORIGINS: http://localhost:3000,http://localhost:5173
+      FORECAST_CSV_PATH: /app/data/ui_forecasts.csv
+      WEATHER_CSV_PATH: /app/data/ui_weather.csv
+      EVENT_COEFFICIENT_CSV_PATH: /app/data/ui_event.csv
+      EVENTS_CSV_PATH: /app/data/ui_events.csv
+      PLANNING_PROFILES_CSV_PATH: /app/data/ui_planning_profiles.csv
+      ROUTE_COLORS_CSV_PATH: /app/data/ui_route_colors.csv
+      ROUTES_JSON_PATH: /app/data/tram-routes.json
+      GEOMETRIES_JSON_PATH: /app/data/tram-geometries.json
+    volumes:
+      - ./frontend/ui_forecasts.csv:/app/data/ui_forecasts.csv:ro
+      - ./ui_weather.csv:/app/data/ui_weather.csv:ro
+      - ./ui_event.csv:/app/data/ui_event.csv:ro
+      - ./frontend/ui_events.csv:/app/data/ui_events.csv:ro
+      - ./frontend/ui_planning_profiles.csv:/app/data/ui_planning_profiles.csv:ro
+      - ./frontend/ui_route_colors.csv:/app/data/ui_route_colors.csv:ro
+      - ./frontend/app/tram-routes.json:/app/data/tram-routes.json:ro
+      - ./frontend/app/tram-geometries.json:/app/data/tram-geometries.json:ro
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
