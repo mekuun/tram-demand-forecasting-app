@@ -1,0 +1,19 @@
+.git/
+.next/
+.vinext/
+.wrangler/
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/.vinext/
+frontend/.wrangler/
+frontend/dist/
+frontend copy/
+frontend copy_bad_map/
+dataset/train.csv
+dataset/test.csv
+__pycache__/
+*.pyc
+/data.csv
+/ui_forecasts.csv
+frontend/data/

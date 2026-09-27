@@ -1,0 +1,28 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+frontend/.git/
+frontend/node_modules/
+frontend/.next/
+frontend/.vinext/
+frontend/.wrangler/
+frontend/dist/
+frontend/.env.local
+
+frontend copy/
+frontend copy_bad_map/
+tmp/
+дизайн/
+Codex Image *.png
+узор.pdf
+
+dataset/train.csv
+dataset/test.csv
+dataset/labels/
+dataset/spravochniki/
+/data.csv
+/ui_forecasts.csv
+/frontend/data.csv
+/frontend/data/
